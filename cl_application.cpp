@@ -53,20 +53,26 @@ int cl_application::exec_app()
 		std::cout << std::endl << "The head object " << error_coordinate << " is not found";
 		return 1;
 	}
-	
-	std::cout << "Object tree";
-	show_object_tree();
-	std::cout << std::endl;
-	
+
 	std::string command, args;
-	std::vector<std::string> callback;
+	std::vector<std::string> commands, callback;
 	cl_base* target = this, * from = nullptr;
 
 	std::getline(std::cin, command, '\n');
 	while (true)
 	{
 		std::getline(std::cin, command, '\n');
-		
+		commands.push_back(command);
+
+		if (command == "END") break;
+	}
+
+	std::cout << "Object tree";
+	show_object_tree();
+
+	for (size_t i = 0; i < commands.size(); i++)
+	{
+		command = commands.at(i);
 		if (command == "END")
 		{
 			callback.push_back("Current object hierarchy tree");
@@ -123,7 +129,7 @@ int cl_application::exec_app()
 			}
 		}
 	}
-	
+
 	for (size_t i = 0; i < callback.size(); i++) std::cout << std::endl << callback.at(i);
 	show_object_tree();
 
