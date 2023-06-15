@@ -54,6 +54,10 @@ int cl_application::exec_app()
 		return 1;
 	}
 	
+	std::cout << "Object tree";
+	show_object_tree();
+	std::cout << std::endl;
+	
 	std::string command, args;
 	std::vector<std::string> callback;
 	cl_base* target = this, * from = nullptr;
@@ -119,9 +123,7 @@ int cl_application::exec_app()
 			}
 		}
 	}
-
-	std::cout << "Object tree";
-	show_object_tree();
+	
 	for (size_t i = 0; i < callback.size(); i++) std::cout << std::endl << callback.at(i);
 	show_object_tree();
 
