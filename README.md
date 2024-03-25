@@ -178,5 +178,5 @@ rootela
         object_7
 ```
 ---
-### Автор - https://vk.com/aptekkkar 
+### Автор - https://vk.com/aptekkkar / https://t.me/glaucine 
    + Прямой путь по ID: https://vk.com/id169607065
