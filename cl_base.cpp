@@ -24,7 +24,11 @@ cl_base* cl_base::get_object_by_name(std::string s_object_name)
 
 cl_base* cl_base::get_sub_object_by_name(std::string s_object_name)
 {
-	if (!s_object_name.empty()) for (cl_base* subordinate_object : subordinate_objects) if (subordinate_object->get_object_name() == s_object_name) return subordinate_object;
+	if (!s_object_name.empty())
+	{
+		for (int i = 0; i < subordinate_objects.size(); i++) if (subordinate_objects.at(i)->get_object_name() == s_object_name) return subordinate_objects.at(i);
+		for (int i = 0; i < subordinate_objects.size(); i++) if (subordinate_objects.at(i)->get_sub_object_by_name(s_object_name)) return subordinate_objects.at(i)->get_sub_object_by_name(s_object_name);
+	}
 	return nullptr;
 }
 
